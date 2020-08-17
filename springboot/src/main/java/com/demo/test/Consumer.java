@@ -8,6 +8,7 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 
 /**
+ * 消费者
  * @author huwj
  * @date 2020-08-04 14:16
  */
