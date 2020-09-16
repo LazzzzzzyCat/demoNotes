@@ -12,11 +12,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
+import org.springframework.jms.connection.JmsTransactionManager;
 import org.springframework.jms.core.JmsTemplate;
 
-import javax.jms.ConnectionFactory;
-import javax.jms.Queue;
-import javax.jms.Topic;
+import javax.jms.*;
 
 /**
  * activemq配置
@@ -62,12 +61,14 @@ public class ActiveMQConfig {
     public JmsTemplate jmsTemplate(ActiveMQConnectionFactory activeMQConnectionFactory, Queue queue) {
         JmsTemplate jmsTemplate = new JmsTemplate();
         //进行持久化配置 1表示非持久化，2表示持久化
-        jmsTemplate.setDeliveryMode(2);
+        jmsTemplate.setDeliveryMode(DeliveryMode.PERSISTENT);
         jmsTemplate.setConnectionFactory(activeMQConnectionFactory);
         //此处可不设置默认，在发送消息时也可设置队列
         jmsTemplate.setDefaultDestination(queue);
         //客户端签收模式
-        jmsTemplate.setSessionAcknowledgeMode(4);
+        jmsTemplate.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
+        //设置事务
+        jmsTemplate.setSessionTransacted(true);
         return jmsTemplate;
     }
 
@@ -85,8 +86,13 @@ public class ActiveMQConfig {
         factory.setConcurrency("1-10");
         //重连间隔时间
         factory.setRecoveryInterval(1000L);
-        factory.setSessionAcknowledgeMode(4);
-//        factory.setSessionTransacted(false);
+
+//        factory.setSessionAcknowledgeMode(Session.CLIENT_ACKNOWLEDGE);
+        //设置事务
+        factory.setSessionTransacted(true);
+
+        JmsTransactionManager jmsTransactionManager = new JmsTransactionManager();
+        factory.setTransactionManager(jmsTransactionManager);
         return factory;
     }
 

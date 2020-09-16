@@ -24,13 +24,14 @@ public class Consumer {
     public void listenQueue(TextMessage msg, Session session) throws JMSException {
         String text = msg.getText();
         System.out.println("consumer0接收到queue消息：" + text);
-        msg.acknowledge();
+//        msg.acknowledge();
+//        session.recover();
     }
 
     @JmsListener(destination = "springboot.queue", containerFactory = "jmsQueueListener")
-    public void listenQueue1(String msg, Session session) throws JMSException {
-        System.out.println("consumer1接收到queue消息：" + msg);
-        session.recover();
+    public void listenQueue1(TextMessage msg, Session session) throws JMSException {
+        System.out.println("consumer1接收到queue消息：" + msg.getText());
+
     }
 
     /**
