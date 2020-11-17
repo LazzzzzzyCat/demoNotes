@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>activeMqDemo</artifactId>
-    <groupId>com.demo</groupId>
+    <groupId>com.com.demo</groupId>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>frameless</module>
-        <module>springboot</module>
+        <module>activeMq-frameless</module>
+        <module>activeMq-springboot</module>
     </modules>
 </project>
