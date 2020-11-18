@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: es-demo
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://127.0.0.1:5432/clinic?useUnicode=true&characterEncoding=utf8&allowEncodingChanges=true&allowMultiQueries=true&useAffectedRows=true
+    username: postgres
+    password: postgres
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  jackson:
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis:
+  mapperLocations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

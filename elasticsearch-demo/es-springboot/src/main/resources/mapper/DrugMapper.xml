@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.drug.maper.DrugMapper">
+    <resultMap id="DrugResultMap" type="com.demo.drug.domain.DrugPo">
+        <result property="drugid" column="drugid" jdbcType="VARCHAR"/>
+        <result property="drugname" column="drugname" jdbcType="VARCHAR"/>
+        <result property="artno" column="artno" jdbcType="VARCHAR"/>
+        <result property="barcode" column="barcode" jdbcType="VARCHAR"/>
+        <result property="gencpycode" column="gencpycode" jdbcType="VARCHAR"/>
+        <result property="manuftidname" column="manuftidname" jdbcType="VARCHAR"/>
+        <result property="taxrto" column="taxrto" jdbcType="NUMERIC"/>
+        <result property="last_update" column="last_update" jdbcType="TIMESTAMP"/>
+        <result property="store_ip" column="store_ip" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryAll" resultMap="DrugResultMap">
+        select drugid, artno, drugname, barcode, gencpycode, manuftidname, taxrto, last_update, '127.0.0.1' as store_ip
+        from basic.base_drug
+        where last_update is not null
+        limit 500;
+    </select>
+
+    <select id="queryById" resultMap="DrugResultMap">
+        select drugid, artno, drugname, barcode, gencpycode, manuftidname, taxrto, last_update, '127.0.0.1' as store_ip
+        from basic.base_drug
+        where drugid=#{drugid}
+    </select>
+
+</mapper>
