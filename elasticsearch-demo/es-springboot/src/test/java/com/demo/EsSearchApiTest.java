@@ -42,22 +42,22 @@ public class EsSearchApiTest {
 
     @Test
     public void matchQueryTest(){
-
+        this.doQuery(QueryBuilders.matchQuery("manuftidname", "福建"));
     }
 
     @Test
     public void multiMatchQueryTest(){
-
+        this.doQuery(QueryBuilders.multiMatchQuery("福建", "manuftidname", "drugname"));
     }
 
     @Test
     public void fuzzyQueryTest(){
-
+        this.doQuery(QueryBuilders.fuzzyQuery("manuftidname", "瑞典"));
     }
 
     @Test
     public void prefixQueryTest(){
-
+        this.doQuery(QueryBuilders.prefixQuery("manuftidname", "瑞典"));
     }
 
     @Test

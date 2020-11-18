@@ -7,7 +7,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://127.0.0.1:5432/clinic?useUnicode=true&characterEncoding=utf8&allowEncodingChanges=true&allowMultiQueries=true&useAffectedRows=true
+    url: jdbc:postgresql://192.168.17.91:5432/clinic?useUnicode=true&characterEncoding=utf8&allowEncodingChanges=true&allowMultiQueries=true&useAffectedRows=true
     username: postgres
     password: postgres
     hikari:
