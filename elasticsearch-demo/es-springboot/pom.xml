@@ -13,21 +13,24 @@
 
     <properties>
         <springboot.verson>2.3.2.RELEASE</springboot.verson>
-        <elasticsearch>7.10.0</elasticsearch>
+        <elasticsearch.version>7.10.0</elasticsearch.version>
         <mybatis-starter.version>1.3.2</mybatis-starter.version>
         <postgresql.version>42.2.8</postgresql.version>
-        <!--<elasticsearch>7.6.2</elasticsearch>-->
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>${springboot.verson}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.verson}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

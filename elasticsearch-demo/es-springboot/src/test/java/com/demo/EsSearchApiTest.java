@@ -52,12 +52,12 @@ public class EsSearchApiTest {
 
     @Test
     public void fuzzyQueryTest(){
-        this.doQuery(QueryBuilders.fuzzyQuery("manuftidname", "瑞典"));
+        this.doQuery(QueryBuilders.fuzzyQuery("drugname", "火嘛仁").prefixLength(2));
     }
 
     @Test
     public void prefixQueryTest(){
-        this.doQuery(QueryBuilders.prefixQuery("manuftidname", "瑞典"));
+        this.doQuery(QueryBuilders.prefixQuery("drugname", "火*"));
     }
 
     @Test
