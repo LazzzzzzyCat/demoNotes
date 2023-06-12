@@ -48,7 +48,7 @@ public class ParseHub {
         WebDriver driver = new ChromeDriver();
 
         int count = getTotalPageNum(driver);
-        for (int i = 1; i < count; i++) {
+        for (int i = 1; i <= count; i++) {
             //设置爬取网站
             if (keys != null) {
                 driver.get("https://cn.pornhub.com/video/search?search=" + keys + "&page=" + i);
@@ -98,7 +98,7 @@ public class ParseHub {
 //        WebElement skip = driver.findElement(By.cssSelector("li.page_next_set"));
 //        String text = skip.findElement(By.tagName("a")).getText();
 //        return Integer.parseInt(text);
-        return 10;
+        return 2;
     }
 
 
