@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  redis:
+#    sentinel:
+#      nodes: 192.168.6.189:26379,192.168.6.189:26380,192.168.6.189:26381
+#      master: mymaster
+    timeout: 5000
+    password: Yinhaipwd
+    host: 172.20.22.233
+    port: 6379
