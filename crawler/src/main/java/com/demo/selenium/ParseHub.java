@@ -27,7 +27,7 @@ public class ParseHub {
 
     private static void getWhatIWantFromHub(String keys) throws IOException {
         //将驱动加载到Java的JVM虚拟机中
-        System.getProperties().setProperty("webdriver.chrome.driver", "D:\\Demo\\chromedriver_win32\\chromedriver.exe");
+        System.getProperties().setProperty("webdriver.chrome.driver", "D:\\Demo\\demoNotes\\crawler\\src\\main\\resources\\file\\chromedriver.exe");
 
         String pathName = path +"hub\\"+ keys;
         File file = new File(pathName);

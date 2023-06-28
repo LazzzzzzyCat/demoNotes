@@ -21,13 +21,13 @@ public class ParseJinDong {
 
 
     public static void main(String[] args) throws IOException {
-        getWhatIWantFromHub("情趣");
+        getWhatIWantFromHub("头盔");
 
     }
 
     private static void getWhatIWantFromHub(String keys) throws IOException {
         //将驱动加载到Java的JVM虚拟机中
-        System.getProperties().setProperty("webdriver.chrome.driver", "D:\\Demo\\chromedriver_win32\\chromedriver.exe");
+        System.getProperties().setProperty("webdriver.chrome.driver", "D:\\Demo\\demoNotes\\crawler\\src\\main\\resources\\file\\chromedriver.exe");
 
         String pathName = path +"jingdong\\" + keys;
         File file = new File(pathName);
